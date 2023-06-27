@@ -1,0 +1,57 @@
+hostname="thinkpad.c0ffee.net"
+
+# wireless config - DHCP, powersaving, and IPv6 enabled by default
+wlans_iwn0="wlan0"
+ifconfig_wlan0="WPA DHCP powersave"
+ifconfig_wlan0_ipv6="inet6 accept_rtadv"
+create_args_wlan0="country US regdomain FCC"
+ipv6_activate_all_interfaces="YES"
+ip6addrctl_policy="ipv6_prefer"
+
+# enable IPv6 autoconfiguration
+rtsold_enable="YES"
+rtsold_flags="-aF"
+
+# don't hang the boot process while waiting on DHCP
+background_dhclient="YES"
+
+# I still use moused. Supposedly you can evdev/synaptics working natively
+# in X11 now - but it was too much trouble for me to get working. I don't
+# use the trackpad (just the nub) and moused works great for that. The -VH
+# flags enable vertical and horizontal scrolling while holding down the
+# center button.
+moused_enable="YES"
+moused_flags="-VH"
+
+# clear /tmp on reboot
+clear_tmp_enable="YES"
+
+# don't let syslog open network sockets
+syslogd_flags="-ss"
+
+# disable the sendmail daemon - I don't use it on laptop
+sendmail_enable="NONE"
+
+# disable kernel crash dumps
+dumpdev="NO"
+
+# sync clock on boot
+ntpd_enable="YES"
+ntpd_flags="-g"
+
+# dbus is required for basically everything in a graphical system
+dbus_enable="YES"
+
+# enable bluetooth (haven't tried this yet)
+hcsecd_enable="YES"
+sdpd_enable="YES"
+
+# I compile my ports with sndio - it's like the BSD-equivalent of
+# pulseaudio (except actually good)
+sndiod_enable="YES"
+
+# enable printing
+cupsd_enable="YES"
+
+# enable use of the webcam (haven't tested yet)
+webcamd_enable="YES"
